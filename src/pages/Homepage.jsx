@@ -1,4 +1,5 @@
 import styles from "./Homepage.module.css";
+import { Link } from "react-router-dom";
 
 export default function Homepage() {
   return (
@@ -15,6 +16,9 @@ export default function Homepage() {
           of. Never forget your wonderful experiences, and show your friends how
           you have wandered the world when curioisty arrives.
         </h2>
+        <Link to="/app" className="cta">
+          Start tracking now
+        </Link>
       </section>
     </main>
   );
