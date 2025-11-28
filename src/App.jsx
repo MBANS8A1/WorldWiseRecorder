@@ -6,8 +6,11 @@ import PageNotFound from "./pages/PageNotFound.jsx";
 import AppLayout from "./pages/AppLayout.jsx";
 import Login from "./pages/Login.jsx";
 import CityList from "./components/CityList.jsx";
+import { useState } from "react";
 
 function App() {
+  const [cities, setCities] = useState({});
+  const [isLoading, setIsLoading] = useState(false);
   return (
     <BrowserRouter>
       <Routes>
