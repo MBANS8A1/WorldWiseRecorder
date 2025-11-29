@@ -10,11 +10,19 @@ function CountryList({ cities, isLoading }) {
       <Message message="Add your first city by clicking on a city on the interactive map." />
     );
 
-  const countries = [];
+  const countries = cities.reduce((acc, city) => {
+    //check if the array contains current country
+    if (!acc.map((el) => el.country).includes(city.country)) {
+      return [...acc, { country: city.country, emoji: city.emoji }];
+    } else {
+      return acc;
+    }
+  }, []);
+
   return (
     <ul className={styles.countrylist}>
       {countries.map((country) => (
-        <CountryItem country={country} key={country.id} />
+        <CountryItem country={country} />
       ))}
     </ul>
   );
