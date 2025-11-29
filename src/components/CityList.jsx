@@ -1,6 +1,8 @@
 import styles from "./CityList.module.css";
-function CityList() {
-  return <ul className={styles.CityList}>THE LIST OF CITIES</ul>;
+import Spinner from "./Spinner.jsx";
+function CityList({ cities, isLoading }) {
+  if (isLoading) return <Spinner />;
+  return <ul className={styles.CityList}>{cities.map(city=>)}</ul>;
 }
 
 export default CityList;
