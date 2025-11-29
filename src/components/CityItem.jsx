@@ -1,5 +1,13 @@
+import styles from "./CityItem.module.css";
 function CityItem({ city }) {
-  return <li>city</li>;
+  const { cityName, emoji, date } = city;
+  console.log(city);
+  return (
+    <li className={styles.cityItem}>
+      <span className={styles.emoji}>{emoji}</span>
+      <h3 className={styles.name}>{cityName}</h3>
+    </li>
+  );
 }
 
 export default CityItem;
