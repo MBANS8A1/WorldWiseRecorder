@@ -1,6 +1,6 @@
 import { useParams, useSearchParams } from "react-router-dom";
 import styles from "./City.module.css";
-import { useState } from "react";
+import { useEffect } from "react";
 import { useCities } from "../contexts/CitiesContext";
 
 const formatDate = (date) =>
@@ -14,6 +14,10 @@ const formatDate = (date) =>
 function City() {
   const { id } = useParams();
   const { currentCity, getCity } = useCities();
+
+  useEffect(function () {
+    getCity(id);
+  }, []);
 
   // TEMP DATA
   // const currentCity = {
