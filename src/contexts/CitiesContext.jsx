@@ -1,3 +1,26 @@
-import { createContext } from "react";
+import { createContext, useState, useEffect } from "react";
 
 const CitiesContext = createContext();
+
+function CitiesProvider({ children }) {
+  const [cities, setCities] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const BASE_URL = "http://localhost:8000";
+  useEffect(function () {
+    async function fetchCities() {
+      try {
+        setIsLoading(true);
+        const res = await fetch(`${BASE_URL}/cities`);
+        const data = await res.json();
+        setCities(data);
+      } catch (err) {
+        console.log("There was an error loading the data.. " + err);
+      } finally {
+        setIsLoading(false);
+      }
+    }
+
+    fetchCities();
+  }, []);
+}
