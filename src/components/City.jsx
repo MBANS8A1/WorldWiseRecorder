@@ -1,4 +1,4 @@
-import { useParams, useSearchParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import styles from "./City.module.css";
 import { useEffect } from "react";
 import { useCities } from "../contexts/CitiesContext";
@@ -15,9 +15,12 @@ function City() {
   const { id } = useParams();
   const { currentCity, getCity } = useCities();
 
-  useEffect(function () {
-    getCity(id);
-  }, []);
+  useEffect(
+    function () {
+      getCity(id);
+    },
+    [id]
+  );
 
   // TEMP DATA
   // const currentCity = {
@@ -32,9 +35,7 @@ function City() {
   return (
     <>
       <h1>City {id}</h1>
-      <p>
-        Position: {lat}, {lng}
-      </p>
+      <p>{/* Position: {lat}, {lng} */}</p>
     </>
   );
 
