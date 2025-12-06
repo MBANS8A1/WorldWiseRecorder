@@ -1,12 +1,13 @@
 import { createContext, useState, useEffect } from "react";
 
+const BASE_URL = "http://localhost:8000";
+
 const CitiesContext = createContext();
 
 function CitiesProvider({ children }) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const BASE_URL = "http://localhost:8000";
   useEffect(function () {
     async function fetchCities() {
       try {
