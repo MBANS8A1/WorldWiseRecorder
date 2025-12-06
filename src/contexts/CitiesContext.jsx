@@ -31,3 +31,5 @@ function CitiesProvider({ children }) {
     </CitiesContext.Provider>
   );
 }
+
+export { CitiesProvider };
