@@ -14,7 +14,7 @@ function Map() {
   return (
     <div className={styles.mapContainer}>
       <MapContainer
-        center={[mapLat, mapLng]}
+        center={mapPosition}
         zoom={13}
         scrollWheelZoom={true}
         className={styles.map}
@@ -36,7 +36,7 @@ function Map() {
             </Marker>
           );
         })}
-        <ChangeMapCenter position={[mapLat, mapLng]} />
+        <ChangeMapCenter position={[mapLat || 40, mapLng || 0]} />
       </MapContainer>
     </div>
   );
