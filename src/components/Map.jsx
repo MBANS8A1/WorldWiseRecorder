@@ -50,16 +50,17 @@ function Map() {
           );
         })}
         <ChangeMapCenter position={mapPosition} />
+        <DetectMapClick />
       </MapContainer>
     </div>
   );
 }
 
 function DetectMapClick() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
 
   useMapEvents({
-    click: (e) => ,
+    click: (e) => navigate(`form`),
   });
 }
 
