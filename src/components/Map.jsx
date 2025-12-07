@@ -36,6 +36,7 @@ function Map() {
             </Marker>
           );
         })}
+        <ChangeMapCenter position={[mapLat, mapLng]} />
       </MapContainer>
     </div>
   );
