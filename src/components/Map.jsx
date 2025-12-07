@@ -7,7 +7,7 @@ function Map() {
   const navigate = useNavigate();
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]); //[lat,lng]
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const mapLat = searchParams.get("lat");
   const mapLng = searchParams.get("lng");
 
@@ -43,7 +43,7 @@ function Map() {
             </Marker>
           );
         })}
-        <ChangeMapCenter position={[mapLat || 40, mapLng || 0]} />
+        <ChangeMapCenter position={mapPosition} />
       </MapContainer>
     </div>
   );
