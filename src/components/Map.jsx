@@ -10,6 +10,12 @@ import {
 } from "react-leaflet";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
+import { useGeolocation } from "../hooks/useGeolocation";
+const {
+  isLoading: isLoadingPosition,
+  position: geolocationPosition,
+  getPosition,
+} = useGeolocation();
 function Map() {
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]); //[lat,lng]
