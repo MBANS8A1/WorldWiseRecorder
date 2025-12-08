@@ -1,5 +1,6 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
 import styles from "./Map.module.css";
+import Button from "./Button.jsx";
 import {
   MapContainer,
   TileLayer,
@@ -32,6 +33,9 @@ function Map() {
 
   return (
     <div className={styles.mapContainer}>
+      <Button type="position" onClick={getPosition}>
+        {isLoadingPosition ? "Loading" : "Use your position"}
+      </Button>
       <MapContainer
         center={mapPosition}
         zoom={6}
