@@ -3,7 +3,7 @@ import { useState } from "react";
 export function useGeolocation(defaultPosition = null) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [position, setPosition] = useState(null);
+  const [position, setPosition] = useState(defaultPosition);
 
   function getPosition() {
     if (!navigator.geolocation) {
