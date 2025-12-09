@@ -27,21 +27,26 @@ function Form() {
 
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
 
-  useEffect(function () {
-    async function fetchCityData() {
-      try {
-        setIsLoadingGeocoding(true);
-        const res = await fetch(`${BASE_URL}?latitude=${lat}&longitude=${lng}`);
-        const data = await res.json();
-        console.log(data);
-      } catch (err) {
-        console.log(err.name);
-      } finally {
-        setIsLoadingGeocoding(false);
+  useEffect(
+    function () {
+      async function fetchCityData() {
+        try {
+          setIsLoadingGeocoding(true);
+          const res = await fetch(
+            `${BASE_URL}?latitude=${lat}&longitude=${lng}`
+          );
+          const data = await res.json();
+          console.log(data);
+        } catch (err) {
+          console.log(err.name);
+        } finally {
+          setIsLoadingGeocoding(false);
+        }
       }
-    }
-    fetchCityData();
-  }, []);
+      fetchCityData();
+    },
+    [lat, lng]
+  );
   return (
     <form className={styles.form}>
       <div className={styles.row}>
