@@ -19,13 +19,12 @@ const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 
 function Form() {
   const [lat, lng] = useUrlPosition();
-
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
   const [notes, setNotes] = useState("");
-
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
+  const [emoji, setEmoji] = useState("");
 
   useEffect(
     function () {
@@ -38,6 +37,7 @@ function Form() {
           const data = await res.json();
           setCityName(data.city || data.locality || "");
           setCountry(data.countryName);
+          setEmoji(convertToEmoji(data.countryCode));
           console.log(data);
         } catch (err) {
           console.log(err.name);
@@ -58,7 +58,7 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
+        <span className={styles.flag}>{emoji}</span>
       </div>
 
       <div className={styles.row}>
