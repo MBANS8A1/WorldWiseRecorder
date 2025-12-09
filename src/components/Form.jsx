@@ -36,6 +36,7 @@ function Form() {
             `${BASE_URL}?latitude=${lat}&longitude=${lng}`
           );
           const data = await res.json();
+          setCityName(data.city || data.locality || "");
           console.log(data);
         } catch (err) {
           console.log(err.name);
