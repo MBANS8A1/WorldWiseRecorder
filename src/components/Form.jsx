@@ -32,6 +32,7 @@ function Form() {
       async function fetchCityData() {
         try {
           setIsLoadingGeocoding(true);
+          setGeocodingError("");
           const res = await fetch(
             `${BASE_URL}?latitude=${lat}&longitude=${lng}`
           );
@@ -44,7 +45,7 @@ function Form() {
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
         } catch (err) {
-          console.log(err.name);
+          setGeocodingError(err.message);
         } finally {
           setIsLoadingGeocoding(false);
         }
