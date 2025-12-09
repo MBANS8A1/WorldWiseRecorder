@@ -5,6 +5,7 @@ import { useState } from "react";
 import styles from "./Form.module.css";
 import Button from "./Button.jsx";
 import BackButton from "./BackButton.jsx";
+import { useUrlPosition } from "../hooks/useUrlPosition.js";
 
 export function convertToEmoji(countryCode) {
   const codePoints = countryCode
@@ -15,6 +16,8 @@ export function convertToEmoji(countryCode) {
 }
 
 function Form() {
+  const [lat, lng] = useUrlPosition();
+
   const [cityName, setCityName] = useState("");
   const [country, setCountry] = useState("");
   const [date, setDate] = useState(new Date());
