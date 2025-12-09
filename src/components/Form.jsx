@@ -58,7 +58,9 @@ function Form() {
     [lat, lng]
   );
 
-  function handleSubmit() {}
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
 
   if (isLoadingGeocoding) return <Spinner />;
   if (!lat && !lng)
