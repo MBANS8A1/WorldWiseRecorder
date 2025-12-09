@@ -25,6 +25,7 @@ function Form() {
   const [notes, setNotes] = useState("");
   const [isLoadingGeocoding, setIsLoadingGeocoding] = useState(false);
   const [emoji, setEmoji] = useState("");
+  const [geocodingError, setGeocodingError] = useState("");
 
   useEffect(
     function () {
@@ -35,10 +36,13 @@ function Form() {
             `${BASE_URL}?latitude=${lat}&longitude=${lng}`
           );
           const data = await res.json();
+          if (!data.countryCode)
+            throw new Error(
+              "Where you clicked/selected does not seem to be a city. Click somewhere else please.😕"
+            );
           setCityName(data.city || data.locality || "");
           setCountry(data.countryName);
           setEmoji(convertToEmoji(data.countryCode));
-          console.log(data);
         } catch (err) {
           console.log(err.name);
         } finally {
