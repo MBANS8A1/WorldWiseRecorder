@@ -58,6 +58,10 @@ function Form() {
     [lat, lng]
   );
   if (isLoadingGeocoding) return <Spinner />;
+  if (!lat && !lng)
+    return (
+      <Message message="Start by clicking somewhere on the map you see to the right." />
+    );
   if (geocodingError) return <Message message={geocodingError} />;
   return (
     <form className={styles.form}>
