@@ -37,6 +37,7 @@ function Form() {
           );
           const data = await res.json();
           setCityName(data.city || data.locality || "");
+          setCountry(data.countryName);
           console.log(data);
         } catch (err) {
           console.log(err.name);
