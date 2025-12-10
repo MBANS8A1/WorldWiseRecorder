@@ -10,7 +10,7 @@
         "lat": 38.727881642324164,
         "lng": -9.140900099907554
       },
-      "id": 73930385
+      "id": "73930385"
     },
     {
       "cityName": "Madrid",
@@ -22,7 +22,7 @@
         "lat": 40.46635901755316,
         "lng": -3.7133789062500004
       },
-      "id": 17806751
+      "id": "17806751"
     },
     {
       "cityName": "Berlin",
@@ -34,7 +34,43 @@
         "lat": 52.53586782505711,
         "lng": 13.376933665713324
       },
-      "id": 98443197
+      "id": "98443197"
+    },
+    {
+      "id": "b8da",
+      "cityName": "Ferreira do Zezere",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-12-10T10:56:17.905Z",
+      "notes": "The weather was so beautiful and the food delicious.",
+      "position": {
+        "lat": "39.721777914064525",
+        "lng": "-8.283691406250002"
+      }
+    },
+    {
+      "id": "db40",
+      "cityName": "Montijo",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-12-10T10:56:57.926Z",
+      "notes": "Test Message",
+      "position": {
+        "lat": "38.767225415881086",
+        "lng": "-8.723144531250002"
+      }
+    },
+    {
+      "id": "fd4d",
+      "cityName": "Montijo",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2025-12-10T10:56:57.926Z",
+      "notes": "Test Message",
+      "position": {
+        "lat": "38.767225415881086",
+        "lng": "-8.723144531250002"
+      }
     }
   ]
 }
