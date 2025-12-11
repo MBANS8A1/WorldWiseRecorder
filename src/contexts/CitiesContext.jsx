@@ -26,6 +26,11 @@ function reducer(action, state) {
     case "cities/loaded":
       return { ...state, isLoading: false, cities: action.payload };
     case "city/created":
+      return {
+        ...state,
+        isLoading: false,
+        cities: [...state.cities, action.payload],
+      };
     case "cities/deleted":
     case "rejected":
       return { ...state, isLoading: false, error: action.payload };
@@ -85,9 +90,12 @@ function CitiesProvider({ children }) {
         },
       });
       const data = await res.json();
-      setCities((cities) => [...cities, data]); //added here
+      dispatch({ type: "city/created", payload: data });
     } catch (err) {
-      alert("There was an error in creating the city: " + err);
+      dispatch({
+        type: "rejected",
+        payload: "There was an error in creating the city: " + err,
+      });
     }
   }
 
