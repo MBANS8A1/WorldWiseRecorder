@@ -6,7 +6,16 @@ const initialState = {
   user: null,
   isAuthenticated: false,
 };
-function reducer(state, action) {}
+function reducer(state, action) {
+  switch (action.type) {
+    case "login":
+      return;
+    case "logout":
+      return;
+    default:
+      return new Error("Unknown action type.");
+  }
+}
 function AuthProvider({ children }) {
   const [{ user, isAuthenticated }, dispatch] = useReducer(
     reducer,
