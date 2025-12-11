@@ -31,7 +31,14 @@ function reducer(action, state) {
         isLoading: false,
         cities: [...state.cities, action.payload],
       };
-    case "cities/deleted":
+    case "city/deleted":
+      return {
+        ...state,
+        isLoading: false,
+        cities: [
+          ...state.cities.filter((city) => city.action.id !== action.payload),
+        ],
+      };
     case "rejected":
       return { ...state, isLoading: false, error: action.payload };
     default:
@@ -105,9 +112,12 @@ function CitiesProvider({ children }) {
       await fetch(`${BASE_URL}/cities/${id}`, {
         method: "DELETE",
       });
-      setCities((cities) => cities.filter((city) => city.id !== id));
+      dispatch({ type: "city/deleted", payload: id });
     } catch (err) {
-      alert("There was an error in deleting the city: " + err);
+      dispatch({
+        type: "rejected",
+        payload: "There was an error in deleting the city: " + err,
+      });
     }
   }
 
