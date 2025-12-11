@@ -13,6 +13,7 @@ const initialState = {
   cities: [],
   isLoading: false,
   currentCity: {},
+  error: "",
 };
 function reducer(action, state) {
   switch (action.type) {
@@ -23,6 +24,8 @@ function reducer(action, state) {
       return { ...state, isLoading: false, cities: action.payload };
     case "cities/created":
     case "cities/deleted":
+    case "rejected":
+      return { ...state, isLoading: false, error: action.payload };
     default:
       throw new Error("Unknown action type.");
   }
