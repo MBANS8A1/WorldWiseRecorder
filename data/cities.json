@@ -35,18 +35,6 @@
         "lng": 13.376933665713324
       },
       "id": "98443197"
-    },
-    {
-      "id": "b8da",
-      "cityName": "Ferreira do Zezere",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2025-12-10T10:56:17.905Z",
-      "notes": "The weather was so beautiful and the food delicious.",
-      "position": {
-        "lat": "39.721777914064525",
-        "lng": "-8.283691406250002"
-      }
     }
   ]
 }

@@ -9,7 +9,7 @@ const initialState = {
   currentCity: {},
   error: "",
 };
-function reducer(action, state) {
+function reducer(state, action) {
   switch (action.type) {
     case "loading":
       return { ...state, isLoading: true };
@@ -30,9 +30,7 @@ function reducer(action, state) {
       return {
         ...state,
         isLoading: false,
-        cities: [
-          ...state.cities.filter((city) => city.action.id !== action.payload),
-        ],
+        cities: [...state.cities.filter((city) => city.id !== action.payload)],
         currentCity: {},
       };
     case "rejected":
@@ -42,7 +40,7 @@ function reducer(action, state) {
   }
 }
 function CitiesProvider({ children }) {
-  const [{ cities, isLoading, currentCity }, dispatch] = useReducer(
+  const [{ cities, isLoading, currentCity, error }, dispatch] = useReducer(
     reducer,
     initialState
   );
@@ -121,10 +119,10 @@ function CitiesProvider({ children }) {
         cities,
         isLoading,
         currentCity,
+        error,
         getCity,
         createCity,
         deleteCity,
-        error,
       }}
     >
       {children}
