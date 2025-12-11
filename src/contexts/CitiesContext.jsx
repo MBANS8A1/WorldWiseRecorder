@@ -38,15 +38,13 @@ function CitiesProvider({ children }) {
 
   useEffect(function () {
     async function fetchCities() {
+      dispatch({ type: "loading" });
       try {
-        setIsLoading(true);
         const res = await fetch(`${BASE_URL}/cities`);
         const data = await res.json();
-        setCities(data);
+        dispatch({ type: "cities/loaded", payload: data });
       } catch (err) {
         alert("There was an error loading the cities:" + err);
-      } finally {
-        setIsLoading(false);
       }
     }
 
