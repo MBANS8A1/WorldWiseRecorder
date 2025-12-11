@@ -16,6 +16,9 @@ const initialState = {
 };
 function reducer(action, state) {
   switch (action.type) {
+    case "loading":
+      return { ...state, isLoading: true };
+
     case "cities/loaded":
       return { ...state, isLoading: false, cities: action.payload };
     case "cities/created":
