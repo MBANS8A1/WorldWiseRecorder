@@ -25,7 +25,7 @@ function reducer(action, state) {
 
     case "cities/loaded":
       return { ...state, isLoading: false, cities: action.payload };
-    case "cities/created":
+    case "city/created":
     case "cities/deleted":
     case "rejected":
       return { ...state, isLoading: false, error: action.payload };
