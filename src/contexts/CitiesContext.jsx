@@ -14,7 +14,16 @@ const initialState = {
   isLoading: false,
   currentCity: {},
 };
-function reducer(action, state) {}
+function reducer(action, state) {
+  switch (action.type) {
+    case "cities/loaded":
+      return { ...state, isLoading: false, cities: action.payload };
+    case "cities/created":
+    case "cities/deleted":
+    default:
+      throw new Error("Unknown action type.");
+  }
+}
 function CitiesProvider({ children }) {
   // const [cities, setCities] = useState([]);
   // const [isLoading, setIsLoading] = useState(false);
