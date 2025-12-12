@@ -9,9 +9,10 @@ const initialState = {
 function reducer(state, action) {
   switch (action.type) {
     case "login":
-      return;
+      return { ...state, user: action.payload, isAuthenticated: true };
     case "logout":
-      return;
+      return { ...state, user: null, isAuthenticated: false };
+
     default:
       return new Error("Unknown action type.");
   }
