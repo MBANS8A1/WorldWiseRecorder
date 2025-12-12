@@ -1,3 +1,4 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../components/Button";
 import PageNav from "../components/PageNav";
 import { useAuth } from "../contexts/DummyAuthContext";
@@ -9,13 +10,19 @@ export default function Login() {
   const [password, setPassword] = useState("qwerty");
 
   const { login, isAuthenticated } = useAuth();
+  const navigate = useNavigate();
   function handleSubmit(e) {
     e.preventDefault();
 
     if (email && password) login(email, password);
   }
 
-  useEffect(function () {}, [isAuthenticated]);
+  useEffect(
+    function () {
+      if (isAuthenticated) navigate("/app");
+    },
+    [isAuthenticated, navigate]
+  );
 
   return (
     <main className={styles.login}>
