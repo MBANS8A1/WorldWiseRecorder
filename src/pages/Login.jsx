@@ -13,7 +13,7 @@ export default function Login() {
 
     const { login } = useAuth();
 
-    if (email && password) login();
+    if (email && password) login(email, password);
   }
 
   return (
