@@ -8,10 +8,9 @@ export default function Login() {
   const [email, setEmail] = useState("jack@example.com");
   const [password, setPassword] = useState("qwerty");
 
+  const { login } = useAuth();
   function handleSubmit(e) {
     e.preventDefault();
-
-    const { login } = useAuth();
 
     if (email && password) login(email, password);
   }
@@ -19,7 +18,7 @@ export default function Login() {
   return (
     <main className={styles.login}>
       <PageNav />
-      <form className={styles.form} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit} autoComplete="on">
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
