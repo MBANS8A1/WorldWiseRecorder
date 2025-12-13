@@ -1,10 +1,15 @@
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "../contexts/DummyAuthContext";
 import styles from "./User.module.css";
 
 function User() {
-  const { user } = useAuth();
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-  function handleClick() {}
+  function handleClick() {
+    logout();
+    navigate("/app");
+  }
 
   return (
     <div className={styles.user}>
