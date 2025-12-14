@@ -90,6 +90,7 @@ function Form() {
     <form
       className={`${styles.form} ${isLoading ? styles.loading : ""} `}
       onSubmit={handleSubmit}
+      autoComplete="on"
     >
       <div className={styles.row}>
         <label htmlFor="cityName">City name</label>
