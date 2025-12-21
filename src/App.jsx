@@ -1,19 +1,27 @@
+import { lazy } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { CitiesProvider } from "./contexts/CitiesContext.jsx";
 import { AuthProvider } from "./contexts/DummyAuthContext.jsx";
 import ProtectedRoute from "./pages/ProtectedRoute.jsx";
 
-import Product from "./pages/Product.jsx";
-import Pricing from "./pages/Pricing.jsx";
-import Homepage from "./pages/Homepage.jsx";
-import PageNotFound from "./pages/PageNotFound.jsx";
-import AppLayout from "./pages/AppLayout.jsx";
-import Login from "./pages/Login.jsx";
-
 import CityList from "./components/CityList.jsx";
 import CountryList from "./components/CountryList.jsx";
 import City from "./components/City.jsx";
 import Form from "./components/Form.jsx";
+
+// import Product from "./pages/Product.jsx";
+// import Pricing from "./pages/Pricing.jsx";
+// import Homepage from "./pages/Homepage.jsx";
+// import PageNotFound from "./pages/PageNotFound.jsx";
+// import AppLayout from "./pages/AppLayout.jsx";
+// import Login from "./pages/Login.jsx";
+
+const Homepage = lazy(() => import("./pages/Homepage"));
+const Product = lazy(() => import("./pages/Product"));
+const Pricing = lazy(() => import("./pages/Pricing"));
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
+const AppLayout = lazy(() => import("./pages/AppLayout"));
+const Login = lazy(() => import("./pages/Login"));
 
 function App() {
   return (
